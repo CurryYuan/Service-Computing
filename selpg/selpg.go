@@ -52,7 +52,7 @@ func usage(){
 func process_args(sa sp_args, nonFlagNum int){
 	s_e_ok := sa.start_page <= sa.end_page && sa.start_page >= 1
     num_ok := nonFlagNum == 1 || nonFlagNum == 0
-    l_f_ok := !sa.page_type || sa.page_type == true && sa.page_len != 72
+    l_f_ok := sa.page_type && sa.page_len != 72
     if !s_e_ok || !num_ok || l_f_ok {
         usage()
         os.Exit(1)
